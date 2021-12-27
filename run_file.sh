@@ -1,7 +1,4 @@
 #!/bin/bash
-echo What python file plus args would you like to run ex: training.py 0 -g female -s true?
-read filename
-
 MINICONDA_INSTALLER_SCRIPT=Miniconda3-4.5.4-Linux-x86_64.sh
 MINICONDA_PREFIX=/usr/local
 wget https://repo.continuum.io/miniconda/$MINICONDA_INSTALLER_SCRIPT
@@ -21,7 +18,4 @@ yes | conda install -c anaconda cudatoolkit
 
 pip list
 
-python $filename
-
-gsutil -m cp -r /content/colab_directory/Cross_validation_splits/100%_female_images gs://gender-bias-data/Cross_validation_splits
-gsutil -m cp -r /content/colab_directory/Cross_validation_splits/0%_female_images gs://gender-bias-data/Cross_validation_splits
+python train.py 0 -g male -s true
